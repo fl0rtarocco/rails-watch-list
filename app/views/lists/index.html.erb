@@ -3,6 +3,9 @@
   <% @lists.each do |list| %>
     <li>
       <%= link_to list.name, list_path(list) %>
+      <%= link_to list_path(list), method: :delete do %>
+        <i class="fas fa-trash-alt"></i>
+      <% end %>
     </li>
   <% end %>
 </ul>
