@@ -1,5 +1,4 @@
 <h1>Lists</h1>
-<%= link_to 'Create new list', new_list_path %>
 <ul>
   <% @lists.each do |list| %>
     <li>
@@ -7,3 +6,7 @@
     </li>
   <% end %>
 </ul>
+
+<%= link_to new_list_path do %>
+  <p><i class="far fa-plus-square"></i> Create new list</p>
+<% end %>

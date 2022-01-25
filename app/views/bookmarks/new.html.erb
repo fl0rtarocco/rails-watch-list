@@ -4,3 +4,6 @@
   <%= f.association :movie %>
   <%= f.submit 'Create bookmark' %>
 <% end %>
+<%= link_to list_path(@list) do %>
+  <p><i class="fas fa-arrow-left"></i> Go back</p>
+<% end %>
