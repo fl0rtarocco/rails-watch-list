@@ -1,8 +1,10 @@
-<%= simple_form_for @list do |f| %>
-  <%= f.input :name %>
-  <%= f.input :photo, as: :file %>
-  <%= f.submit 'Create' %>
-<% end %>
-<%= link_to root_path do %>
-  <p><i class="fas fa-arrow-left"></i> Go back</p>
-<% end %>
+<div class="p-3">
+  <%= simple_form_for @list do |f| %>
+    <%= f.input :name %>
+    <%= f.input :photo, as: :file %>
+    <%= f.submit 'Create' %>
+  <% end %>
+  <%= link_to root_path do %>
+    <p><i class="fas fa-arrow-left"></i> Go back</p>
+  <% end %>
+</div>

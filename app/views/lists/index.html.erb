@@ -1,16 +1,20 @@
-<h1>Lists</h1>
-<ul>
-  <% @lists.each do |list| %>
-    <li>
-      <%= cl_image_tag list.photo.key, height: 300 %>
-      <%= link_to list.name, list_path(list) %>
-      <%= link_to list_path(list), method: :delete do %>
-        <i class="fas fa-trash-alt"></i>
-      <% end %>
-    </li>
-  <% end %>
-</ul>
+<div class="p-3">
+  <h1>Lists</h1>
+  <div class="lists-cards">
+    <% @lists.each do |list| %>
+      <div class="card-category m-3" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path list.photo.key, height: 300, crop: :fill %>')">
+        <%= link_to list.name, list_path(list) %>
+        <div class="list-delete">
+          <%= link_to list_path(list), method: :delete do %>
+            <i class="fas fa-trash-alt"></i>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  </div>
 
-<%= link_to new_list_path do %>
-  <p><i class="far fa-plus-square"></i> Create new list</p>
-<% end %>
+  <%= link_to new_list_path do %>
+    <p><i class="far fa-plus-square"></i> Create new list</p>
+  <% end %>
+
+</div>

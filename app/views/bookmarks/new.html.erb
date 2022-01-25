@@ -1,9 +1,12 @@
-<h1>Add bookmark</h1>
-<%= simple_form_for [@list, @bookmark] do |f| %>
-  <%= f.input :comment %>
-  <%= f.association :movie %>
-  <%= f.submit 'Create bookmark' %>
-<% end %>
-<%= link_to list_path(@list) do %>
-  <p><i class="fas fa-arrow-left"></i> Go back</p>
-<% end %>
+<div class="p-3">
+  <h1>Add bookmark</h1>
+  <%= simple_form_for [@list, @bookmark] do |f| %>
+    <%= f.input :comment %>
+    <%= f.association :movie %>
+    <%= f.submit 'Create bookmark' %>
+  <% end %>
+  <br>
+  <%= link_to list_path(@list) do %>
+    <p><i class="fas fa-arrow-left"></i> Go back</p>
+  <% end %>
+</div>

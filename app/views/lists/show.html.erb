@@ -1,27 +1,33 @@
-<h1><%= @list.name %></h1>
-<%= link_to list_path(@list), method: :delete, data: { confirm: 'Are you sure?' } do %>
-  <p><i class="fas fa-trash-alt"></i> Delete watchlist</p>
-<% end %>
-<%= link_to new_list_bookmark_path(@list) do %>
-  <p><i class="far fa-plus-square"></i> Bookmark a movie</p>
-<% end %>
-<h5>My bookmarks:</h4>
-<ul style="list-style-type: none;">
-  <% @list.bookmarks.each do |bookmark|%>
-    <li>
-      <div class="bookmark-card d-flex">
-        <%= image_tag bookmark.movie.poster_url, width: 100 %>
-        <div class="bookmark-details pl-3">
-          <h3><%= bookmark.movie.title %></h3><br>
-          <%= bookmark.comment %><br>
-          <%= link_to bookmark_path(bookmark), method: :delete, data: { confirm: 'Are you sure?' } do %>
-            <i class="fas fa-trash-alt"></i>
-          <% end %>
-        </div>
-      </div>
-    </li>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%= cl_image_path @list.photo.key, height: 300, crop: :fill %>')">
+  <h1><%= @list.name %></h1>
+  <div class="banner-delete">
+    <%= link_to list_path(@list), method: :delete, data: { confirm: 'Are you sure?' } do %>
+      <p><i class="fas fa-trash-alt"></i> Delete watchlist</p>
+    <% end %>
+  </div>
+</div>
+<div class="p-3">
+  <h5>My bookmarks:</h4>
+  <%= link_to new_list_bookmark_path(@list) do %>
+    <p><i class="far fa-plus-square"></i> Bookmark a movie</p>
   <% end %>
-</ul>
-<%= link_to root_path do %>
-  <p><i class="fas fa-arrow-left"></i> Go back</p>
-<% end %>
+  <ul style="list-style-type: none;">
+    <% @list.bookmarks.each do |bookmark|%>
+      <li>
+        <div class="bookmark-card d-flex">
+          <%= image_tag bookmark.movie.poster_url, width: 100 %>
+          <div class="bookmark-details pl-3">
+            <h3><%= bookmark.movie.title %></h3><br>
+            <%= bookmark.comment %><br>
+            <%= link_to bookmark_path(bookmark), method: :delete, data: { confirm: 'Are you sure?' } do %>
+              <i class="fas fa-trash-alt"></i>
+            <% end %>
+          </div>
+        </div>
+      </li>
+    <% end %>
+  </ul>
+  <%= link_to root_path do %>
+    <p><i class="fas fa-arrow-left"></i> Go back</p>
+  <% end %>
+</div>
